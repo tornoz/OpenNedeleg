@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ListController!{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <p> {{'app.welcome'|trans({'%name%': user.name})}} </p>
+        </div>
+    </div>
+    <div class="row">
+
+        {{form_start(listForm)}}
+        <div class="col listItems"  data-prototype="{{ form_widget(listForm.listItems.vars.prototype)|e('html_attr') }}">
+            {% for item in listForm.listItems %}
+                    {{ form_row(item) }}<button type="button">X</button>
+            {% endfor %}
+            <button type="button" class="add_item_link" data-collection-holder-class="listItems">Add item</button>
+        </div>
+        <input type="submit"/>
+        {{form_end(listForm)}}
+    </div>
+    <div class="row">
+
+        {% for list in userList.otherLists %}
+            <div class="col">
+                <h3>{{list.writer.name}}</h3>
+                <ul>
+                    {% for item in list.listItems %}
+                        <li>{{ item.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

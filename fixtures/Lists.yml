@@ -1,0 +1,80 @@
+App\Entity\UserList:
+  nedeleg_yann:
+    writer: '@yann'
+    event: '@nedeleg'
+    token: 'token-yann'
+    otherLists: ['@nedeleg_anjela', '@nedeleg_loeiza']
+  nedeleg_anjela:
+    writer: '@anjela'
+    event: '@nedeleg'
+    token: 'token-anjela'
+    otherLists: ['@nedeleg_yann', '@nedeleg_loeiza']
+  nedeleg_loeiza:
+    writer: '@loeiza'
+    event: '@nedeleg'
+    token: 'token-loeiza'
+    otherLists: ['@nedeleg_yann', '@nedeleg_loeiza', '@nedeleg_jakez']
+  nedeleg_jakez:
+    writer: '@jakez'
+    event: '@nedeleg'
+    token: 'token-jakez'
+    otherLists: ['@nedeleg_anjela', '@nedeleg_loeiza']
+
+App\Entity\ListItem:
+  yann_1:
+    list: '@nedeleg_yann'
+    name: 'Ur pellgomzer nevez'
+  yann_2:
+    list: '@nedeleg_yann'
+    name: 'Ur pone'
+  yann_3:
+    list: '@nedeleg_yann'
+    name: 'Ur poull-neuial'
+  anjela_1:
+    list: '@nedeleg_anjela'
+    name: "Ur marc'h-houarn"
+  anjela_2:
+    list: '@nedeleg_anjela'
+    name: "Un Nintendo Switch"
+  anjela_3:
+    list: '@nedeleg_anjela'
+    name: "Ur skinwel"
+  anjela_4:
+    list: '@nedeleg_anjela'
+    name: "Botoù louboutin"
+  anjela_5:
+    list: '@nedeleg_anjela'
+    name: "Chokolad"
+  loeiza_1:
+    list: '@nedeleg_loeiza'
+    name: "Soubenn"
+  jakez_1:
+    list: '@nedeleg_jakez'
+    name: "DVD Star Wars"
+  jakez_2:
+    list: '@nedeleg_jakez'
+    name: "Avu lard"
+  jakez_3:
+    list: '@nedeleg_jakez'
+    name: "Serviedennoù"
+  jakez_4:
+    list: '@nedeleg_jakez'
+    name: "Arc'hant"
+  jakez_5:
+    list: '@nedeleg_jakez'
+    name: "Kartenn brof H&M"
+  jakez_6:
+    list: '@nedeleg_jakez'
+    name: "Un urzhiataer hezoug"
+  jakez_7:
+    list: '@nedeleg_jakez'
+    name: "Dafar keginañ"
+  jakez_8:
+    list: '@nedeleg_jakez'
+    name: "Ar vosenn skarlek - Jack London"
+  jakez_9:
+    list: '@nedeleg_jakez'
+    name: "Loeroù nevez"
+  jakez_10:
+    list: '@nedeleg_jakez'
+    name: "Chokolad"

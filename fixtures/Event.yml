@@ -1,0 +1,4 @@
+App\Entity\Event:
+  nedeleg:
+    name: Nedeleg 2021
+    description: "Nedeleg 2021 a vo gwelloc'h eget hini 2020"

@@ -1,0 +1,13 @@
+App\Entity\User:
+  yann:
+    name: Yann
+    email: yann@example.com
+  loeiza:
+    name: Loeiza
+    email: loeiza@example.com
+  anjela:
+    name: Anjela
+    email: anjela@example.com
+  jakez:
+    name: Jakez
+    email: jakez@example.com
