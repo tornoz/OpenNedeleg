@@ -10,6 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reservation
 {
+    const RESERVED = 'reserved';
+    const GOT = 'got';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -30,7 +33,7 @@ class Reservation
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $status;
+    private $status = self::RESERVED;
 
     public function getId(): ?int
     {

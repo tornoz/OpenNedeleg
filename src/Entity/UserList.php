@@ -20,7 +20,7 @@ class UserList
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity=ListItem::class, mappedBy="list")
+     * @ORM\OneToMany(targetEntity=ListItem::class, mappedBy="list", cascade={"persist"})
      */
     private $listItems;
 
@@ -65,6 +65,7 @@ class UserList
 
     public function addListItem(ListItem $listItem): self
     {
+        dump('ALO');
         if (!$this->listItems->contains($listItem)) {
             $this->listItems[] = $listItem;
             $listItem->setList($this);

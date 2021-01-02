@@ -7,31 +7,91 @@
 
     <div class="row">
         <div class="col">
-            <p> {{'app.welcome'|trans({'%name%': user.name})}} </p>
+            <h1> {{'app.welcome'|trans({'%name%': user.name})}} </h1>
         </div>
     </div>
     <div class="row">
 
         {{form_start(listForm)}}
         <div class="col listItems"  data-prototype="{{ form_widget(listForm.listItems.vars.prototype)|e('html_attr') }}">
+            
             {% for item in listForm.listItems %}
-                    {{ form_row(item) }}<button type="button">X</button>
+                <div class="row">
+                    <div class="col">{{ form_row(item) }}</div>
+                </div>
             {% endfor %}
-            <button type="button" class="add_item_link" data-collection-holder-class="listItems">Add item</button>
         </div>
-        <input type="submit"/>
-        {{form_end(listForm)}}
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary add_item_link" data-collection-holder-class="listItems">{{'app.add_item'|trans}}</button>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="submit" class="btn btn-primary"/>
+            {{form_end(listForm)}}
+        </div>
     </div>
     <div class="row">
 
         {% for list in userList.otherLists %}
             <div class="col">
                 <h3>{{list.writer.name}}</h3>
-                <ul>
-                    {% for item in list.listItems %}
-                        <li>{{ item.name }}</li>
-                    {% endfor %}
-                </ul>
+                {% for item in list.listItems %}
+                    <div class="row">
+                        <div class="col">
+                            {{ item.name }}
+                        </div>
+                        <div class="col">
+                            {% if item.reservations| length > 0 %}
+                                {% if item.reservations.first.reserver == userList.writer %}
+                                        {{('app.state_'~item.reservations.first.status~'_you')|trans}}
+                                {% else %}
+                                    {{('app.state_'~item.reservations.first.status)|trans({'%name%' : item.reservations.first.reserver.name})}}
+                                {% endif %}
+                            {% else %}
+                                {{'app.free'|trans}}
+                            {% endif %}
+                        </div>
+                        {% if item.reservations| length > 0 %}
+                            {% if item.reservations.first.reserver == userList.writer %}
+                                <div class="col">
+                                    <a href="{{path('unreserve', {'token': userList.token, 'item': item.id})}}">
+                                        <button class="btn btn-primary">
+                                            {{'app.unreserve'|trans}}    
+                                        </button>
+                                    </a>
+                                </div>
+                                {% if item.reservations.first.status != 'got' %}
+                                    <div class="col">
+                                        <a href="{{path('get', {'token': userList.token, 'item': item.id})}}">
+                                            <button class="btn btn-primary">
+                                                {{'app.get'|trans}}
+                                            </button>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% else %}
+                            <div class="col">
+                                <a href="{{path('reserve', {'token': userList.token, 'item': item.id})}}">
+                                    <button class="btn btn-primary">
+                                        {{'app.reserve'|trans}}    
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="{{path('get', {'token': userList.token, 'item': item.id})}}">
+                                    <button class="btn btn-primary">
+                                        {{'app.get'|trans}}    
+                                    </button>
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
             </div>
         {% endfor %}
     </div>

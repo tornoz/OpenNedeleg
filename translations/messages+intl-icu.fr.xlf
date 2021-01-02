@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="BTkw..U" resname="app.welcome">
+        <source>app.welcome</source>
+        <target>Bienvenue, %name%</target>
+      </trans-unit>
+      <trans-unit id="Uk5yghS" resname="app.free">
+        <source>app.free</source>
+        <target>Disponible</target>
+      </trans-unit>
+      <trans-unit id="FS6TBpn" resname="app.unreserve">
+        <source>app.unreserve</source>
+        <target>Libérer</target>
+      </trans-unit>
+      <trans-unit id="t3h3q71" resname="app.get">
+        <source>app.get</source>
+        <target>Prendre</target>
+      </trans-unit>
+      <trans-unit id="Q_lIQCA" resname="app.reserve">
+        <source>app.reserve</source>
+        <target>Reserver</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
